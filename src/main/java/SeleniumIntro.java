@@ -33,6 +33,9 @@ public class SeleniumIntro {
         // 取得當前路徑
         System.out.println(chromeDriver.getCurrentUrl());
 
+        // 取得最後載入頁面的原始碼
+        System.out.println(chromeDriver.getPageSource());
+
         // 關閉當前分頁
         chromeDriver.close();
 
