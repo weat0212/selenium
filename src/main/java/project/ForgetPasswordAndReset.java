@@ -1,6 +1,6 @@
 package main.java.project;
 
-import main.java.WebDriverFactory;
+import main.java.creation.WindowsWebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,12 +27,12 @@ public class ForgetPasswordAndReset {
 
     public static void main(String[] args) throws IOException {
 
-        ForgetPasswordAndReset.webDriver = WebDriverFactory.getInstance().getDriver("Chrome");
+        webDriver = WindowsWebDriverFactory.getInstance().createDriver("Chrome");
 
         webDriver.get("http://localhost:4200/fleservice/register/p002");
 
-        id = inputValue("ID");
-        birth = inputValue("Birth");
+        id = "N231874516";
+        birth = "1977-06-06";
 
         forgetPassword();
 

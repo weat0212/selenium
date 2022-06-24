@@ -1,6 +1,5 @@
 package main.java.project;
 
-import main.java.CommonUtils;
 import main.java.creation.WindowsWebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,13 +16,11 @@ import java.util.List;
 
 /**
  * @author created by andy.wang
- * @Date on 2022/6/14
+ * @Date on 2022/6/15
  */
-public class AutoRegister {
+public class OtpFail3Times {
 
     public static WebDriver webDriver;
-
-    public static String id = "N231874516";
 
     public static void main(String[] args) throws IOException {
 
@@ -33,7 +30,7 @@ public class AutoRegister {
 
         webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 
-        getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.terms")));
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.terms")));
 
         scrollTermsAndClick();
 
@@ -41,14 +38,49 @@ public class AutoRegister {
 
         confirm();
 
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-
-        System.out.println("進入OTP流程...");
-
         sendOtp();
 
-        System.out.println("進入首次重置密碼流程...");
-        resetPassword();
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(By.tagName("input")));
+
+        for (int i=0; i<3; i++) {
+            resetPassword();
+            getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mat-dialog-2\"]/app-dialog/div/div[2]/a[2]"))).click();
+            getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mat-dialog-3\"]/app-dialog/div/div[2]/a"))).click();
+        }
+    }
+
+    private static void resetPassword() throws IOException {
+
+        webDriver.findElements(By.tagName("input")).get(0).sendKeys("N231874516");
+
+        webDriver.findElements(By.tagName("input")).get(1).sendKeys(inputValue("OTP"));
+
+        String newPassword = "andy1234";
+
+        // 新密碼
+        webDriver.findElements(By.tagName("input")).get(2).sendKeys(newPassword);
+        webDriver.findElements(By.tagName("input")).get(3).sendKeys(newPassword);
+
+        webDriver.findElements(By.tagName("input")).get(4).sendKeys(inputValue("kaptcha"));
+
+        // 確認送出
+        webDriver.findElement(By.className("check_ac")).click();
+
+        // 確認送出彈窗
+        getWait().until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"mat-dialog-4\"]/app-dialog/div/div[2]/a[2]"))).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"mat-dialog-5\"]/app-dialog/div/div[2]/a"))).click();
+    }
+
+    private static void sendOtp() {
+
+        var contactButton = By.className("radio");
+
+        // 點選第一個聯絡資料
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(contactButton)).click();
+
+        // 送出
+        webDriver.findElement(By.className("btn2")).click();
+        webDriver.findElements(By.className("btn2")).get(1).click();
     }
 
     private static void confirm() {
@@ -59,7 +91,7 @@ public class AutoRegister {
     private static void fillUpForm() throws IOException {
 
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[1]/div/div[1]/label/input"))
-                .sendKeys(id);
+                .sendKeys("N231874516");
 
         webDriver.findElement(By.name("date_start_1")).sendKeys("1977-06-06");
 
@@ -81,54 +113,12 @@ public class AutoRegister {
     }
 
     private static WebDriverWait getWait() {
-        return new WebDriverWait(webDriver, Duration.ofMinutes(2));
+        return new WebDriverWait(webDriver, Duration.ofMinutes(1));
     }
 
     private static String inputValue(String msg) throws IOException {
         System.out.println("Enter ".concat(msg));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         return br.readLine();
-    }
-
-    private static void sendOtp() {
-
-        var contactButton = By.className("radio");
-
-        getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(contactButton));
-
-        // 點選第一個聯絡資料
-        webDriver.findElements(contactButton).get(0).click();
-
-        // 送出
-        webDriver.findElement(By.className("btn2")).click();
-        webDriver.findElements(By.className("btn2")).get(1).click();
-
-    }
-
-    private static void resetPassword() throws IOException {
-
-        getWait().until(ExpectedConditions.elementToBeClickable(By.tagName("input")));
-
-        List<WebElement> webElements = webDriver.findElements(By.tagName("input"));
-
-        webElements.get(0).sendKeys(id);
-
-        webElements.get(1).sendKeys(CommonUtils.inputValue("OTP"));
-
-        String newPassword = inputValue("New Password");
-
-        // 新密碼
-        webElements.get(2).sendKeys(newPassword);
-        webElements.get(3).sendKeys(newPassword);
-
-        String kaptcha = inputValue("kaptcha");
-
-        webElements.get(4).sendKeys(kaptcha);
-
-        // 確認送出
-        webDriver.findElement(By.className("check_ac")).click();
-
-        // 確認送出彈窗
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mat-dialog-0\"]/app-dialog/div/div[2]/a[2]"))).click();
     }
 }

@@ -1,5 +1,7 @@
 package main.java;
 
+import main.java.creation.Driver;
+import main.java.creation.WindowsWebDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 public class LocatorsPractice {
@@ -8,7 +10,7 @@ public class LocatorsPractice {
 
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
-        WebDriver driver = WebDriverFactory.getInstance().getDriver(Driver.Chrome.toString());
+        WebDriver driver = WindowsWebDriverFactory.getInstance().createDriver(Driver.Chrome.toString());
         driver.get("https://rahulshettyacademy.com/locatorspractice/");
 
     }

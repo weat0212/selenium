@@ -1,4 +1,4 @@
-package main.java;
+package main.java.creation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,23 +6,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class WebDriverFactory {
+/**
+ * @author created by andy.wang
+ * @Date on 2022/6/15
+ */
+public class MacWebDriverFactory implements AbstractWebDriverFactory {
 
-    private WebDriverFactory() {
+    private MacWebDriverFactory() {
+        setMacProperty();
     }
 
-    public static WebDriverFactory instance;
+    public static MacWebDriverFactory instance;
 
-    public static WebDriverFactory getInstance() {
+    public static MacWebDriverFactory getInstance() {
         if (instance == null) {
-            instance = new WebDriverFactory();
+            instance = new MacWebDriverFactory();
         }
         return instance;
     }
 
-    public WebDriver getDriver(String driverName) {
-
-        setMacProperty();
+    @Override
+    public WebDriver createDriver(String driverName) {
 
         switch (driverName) {
             case "Chrome" -> { return new ChromeDriver(); }
@@ -35,9 +39,5 @@ public class WebDriverFactory {
 
     private void setMacProperty() {
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-    }
-
-    private void setWindowsProperty() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\chromedriver.exe");
     }
 }
