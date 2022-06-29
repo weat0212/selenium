@@ -12,7 +12,7 @@ public class WindowsWebDriverFactory implements AbstractWebDriverFactory {
         setWindowsProperty();
     }
 
-    public static WindowsWebDriverFactory instance;
+    private static WindowsWebDriverFactory instance;
 
     public static WindowsWebDriverFactory getInstance() {
         if (instance == null) {
@@ -31,6 +31,10 @@ public class WindowsWebDriverFactory implements AbstractWebDriverFactory {
             case "IE" -> { return new InternetExplorerDriver(); }
             default -> { return null; }
         }
+    }
+
+    public WebDriver createChromeDriver() {
+        return new ChromeDriver();
     }
 
     private void setWindowsProperty() {

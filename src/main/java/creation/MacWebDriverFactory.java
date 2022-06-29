@@ -16,7 +16,7 @@ public class MacWebDriverFactory implements AbstractWebDriverFactory {
         setMacProperty();
     }
 
-    public static MacWebDriverFactory instance;
+    private static MacWebDriverFactory instance;
 
     public static MacWebDriverFactory getInstance() {
         if (instance == null) {
@@ -35,6 +35,10 @@ public class MacWebDriverFactory implements AbstractWebDriverFactory {
             case "IE" -> { return new InternetExplorerDriver(); }
             default -> { return null; }
         }
+    }
+
+    public WebDriver createChromeDriver() {
+        return new ChromeDriver();
     }
 
     private void setMacProperty() {

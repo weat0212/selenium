@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public enum Driver {
     Chrome("ChromeDriver"),
     Firefox("FirefoxDriver"),
-    IE(""),
+    IE("InternetExplorer"),
     Safari("SafariDriver");
 
     private String driverName;
