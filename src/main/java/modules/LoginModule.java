@@ -51,7 +51,7 @@ public class LoginModule implements Module {
         getWait().until(ExpectedConditions.visibilityOfElementLocated(dialog));
         webDriver.findElement(By.className("brown")).click();
 
-        CommonUtils.inputValue("等待");
+        CommonUtils.inputValue("直到下個Dialog出現");
 
         var repeatLogin = By.tagName("app-dialog");
         getWait().until(ExpectedConditions.visibilityOfElementLocated(repeatLogin));

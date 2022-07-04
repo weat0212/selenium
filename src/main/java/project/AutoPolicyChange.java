@@ -3,6 +3,7 @@ package main.java.project;
 import main.java.creation.WindowsWebDriverFactory;
 import main.java.modules.LoginModule;
 import main.java.modules.Module;
+import main.java.modules.RiskProfileModule;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class AutoPolicyChange {
         List<Module> modules = new ArrayList<>();
 
         modules.add(new LoginModule(webDriver));
+        modules.add(new RiskProfileModule(webDriver));
 
         for (Module module : modules) {
             module.action();
