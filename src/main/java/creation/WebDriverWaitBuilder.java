@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class WebDriverWaitFactory {
+public class WebDriverWaitBuilder {
 
     public static WebDriverWait waitFor30Sec(WebDriver webDriver) {
 
