@@ -9,7 +9,7 @@ import org.openqa.selenium.safari.SafariDriver;
 public class WindowsWebDriverFactory implements AbstractWebDriverFactory {
 
     private WindowsWebDriverFactory() {
-        setWindowsProperty();
+        setProperty();
     }
 
     private static WindowsWebDriverFactory instance;
@@ -37,7 +37,7 @@ public class WindowsWebDriverFactory implements AbstractWebDriverFactory {
         return new ChromeDriver();
     }
 
-    private void setWindowsProperty() {
+    public void setProperty() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\chromedriver.exe");
     }
 }

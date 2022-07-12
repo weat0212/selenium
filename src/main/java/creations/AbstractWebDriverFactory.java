@@ -9,4 +9,6 @@ import org.openqa.selenium.WebDriver;
 public interface AbstractWebDriverFactory {
 
     WebDriver createDriver(String driverName);
+
+    void setProperty();
 }

@@ -13,7 +13,7 @@ import org.openqa.selenium.safari.SafariDriver;
 public class MacWebDriverFactory implements AbstractWebDriverFactory {
 
     private MacWebDriverFactory() {
-        setMacProperty();
+        setProperty();
     }
 
     private static MacWebDriverFactory instance;
@@ -41,7 +41,7 @@ public class MacWebDriverFactory implements AbstractWebDriverFactory {
         return new ChromeDriver();
     }
 
-    private void setMacProperty() {
+    public void setProperty() {
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
     }
 }
