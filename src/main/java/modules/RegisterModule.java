@@ -1,6 +1,6 @@
 package main.java.modules;
 
-import main.java.CommonUtils;
+import main.java.utils.CommonUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

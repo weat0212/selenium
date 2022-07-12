@@ -1,6 +1,6 @@
-package main.java.project;
+package main.java.projects;
 
-import main.java.creation.WindowsWebDriverFactory;
+import main.java.creations.WindowsWebDriverFactory;
 import main.java.modules.LoginModule;
 import main.java.modules.Module;
 import main.java.modules.RiskProfileModule;

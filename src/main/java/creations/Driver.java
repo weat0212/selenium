@@ -1,4 +1,4 @@
-package main.java.creation;
+package main.java.creations;
 
 import java.util.stream.Stream;
 

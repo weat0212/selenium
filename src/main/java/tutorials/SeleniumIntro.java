@@ -1,4 +1,4 @@
-package main.java;
+package main.java.tutorials;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

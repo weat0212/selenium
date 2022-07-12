@@ -1,7 +1,7 @@
 package main.java.modules;
 
-import main.java.CommonUtils;
-import main.java.creation.WebDriverWaitBuilder;
+import main.java.utils.CommonUtils;
+import main.java.creations.WebDriverWaitBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

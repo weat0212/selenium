@@ -1,6 +1,6 @@
-package main.java.project;
+package main.java.projects;
 
-import main.java.creation.WindowsWebDriverFactory;
+import main.java.creations.WindowsWebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

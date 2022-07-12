@@ -1,7 +1,7 @@
-package main.java;
+package main.java.tutorials;
 
-import main.java.creation.Driver;
-import main.java.creation.WindowsWebDriverFactory;
+import main.java.creations.Driver;
+import main.java.creations.WindowsWebDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 public class LocatorsPractice {

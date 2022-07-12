@@ -1,14 +1,12 @@
 package main.java.modules;
 
-import main.java.CommonUtils;
+import main.java.utils.CommonUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.Duration;
 
 public class LoginModule implements Module {
