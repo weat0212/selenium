@@ -17,6 +17,7 @@ public class UploadFile {
     public static void main(String[] args) throws IOException {
 
         WebDriver webDriver = WindowsWebDriverFactory.getInstance().createEdgeDriver();
+        webDriver.manage().window().maximize();
 
         webDriver.get(ConfigUtils.getProperties("fubon.uat.ext.caf.url"));
 
@@ -29,5 +30,4 @@ public class UploadFile {
             module.action();
         }
     }
-
 }
