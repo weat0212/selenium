@@ -1,7 +1,7 @@
 package main.java.fubon;
 
 import main.java.creations.WindowsWebDriverFactory;
-import main.java.commons.Module;
+import main.java.creations.Module;
 import main.java.fubon.modules.CafLoginModule;
 import main.java.fubon.modules.CafOtpModule;
 import main.java.fubon.modules.Caftx002Module;

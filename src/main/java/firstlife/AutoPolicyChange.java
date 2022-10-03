@@ -2,7 +2,7 @@ package main.java.firstlife;
 
 import main.java.creations.WindowsWebDriverFactory;
 import main.java.firstlife.modules.LoginModule;
-import main.java.commons.Module;
+import main.java.creations.Module;
 import main.java.firstlife.modules.RiskProfileModule;
 import org.openqa.selenium.WebDriver;
 

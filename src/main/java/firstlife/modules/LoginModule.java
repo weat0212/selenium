@@ -1,6 +1,6 @@
 package main.java.firstlife.modules;
 
-import main.java.commons.Module;
+import main.java.creations.Module;
 import main.java.utils.CommonUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

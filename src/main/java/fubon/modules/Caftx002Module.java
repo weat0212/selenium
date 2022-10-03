@@ -1,6 +1,6 @@
 package main.java.fubon.modules;
 
-import main.java.commons.Module;
+import main.java.creations.Module;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;

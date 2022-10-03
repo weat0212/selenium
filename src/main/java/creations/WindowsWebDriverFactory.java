@@ -1,6 +1,6 @@
 package main.java.creations;
 
-import main.java.commons.DriverType;
+import main.java.utils.ConfigUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -53,10 +53,10 @@ public class WindowsWebDriverFactory implements AbstractWebDriverFactory {
     }
 
     public void setChromeProperty() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ConfigUtils.getProperties("windows.driver.chrome.location"));
     }
 
     public void setEdgeProperty() {
-        System.setProperty("webdriver.edge.driver", "C:\\softwares\\edgedriver_win64\\msedgedriver.exe");
+        System.setProperty("webdriver.edge.driver", ConfigUtils.getProperties("windows.driver.edge.location"));
     }
 }
