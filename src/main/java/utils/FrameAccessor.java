@@ -10,7 +10,7 @@ public class FrameAccessor {
 
     public static void focusOnFrame(WebDriver webDriver) {
 
-        DriverWaitFactory.waitSec(webDriver, 15).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("frame")));
+        DriverWaitFactory.waitMin(webDriver, 1).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("frame")));
 
         //Store the web element
         WebElement frame = webDriver.findElement(By.tagName("frame"));
@@ -21,7 +21,7 @@ public class FrameAccessor {
 
     public static void focusOnIframe(WebDriver webDriver) {
 
-        DriverWaitFactory.waitSec(webDriver, 15).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("iframe")));
+        DriverWaitFactory.waitMin(webDriver, 1).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("iframe")));
 
         WebElement iframe = webDriver.findElement(By.tagName("iframe"));
 

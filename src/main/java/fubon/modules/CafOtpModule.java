@@ -2,6 +2,7 @@ package main.java.fubon.modules;
 
 import main.java.creations.DriverWaitFactory;
 import main.java.creations.Module;
+import main.java.utils.CommonUtils;
 import main.java.utils.ConfigUtils;
 import main.java.utils.FrameAccessor;
 import org.openqa.selenium.By;
@@ -11,7 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +23,8 @@ public class CafOtpModule implements Module {
     public static final int COLUMN_INDEX = 3;
     public static final int LINK_INDEX = 0;
     private WebDriver webDriver;
+    // UAT環境要改
+    private boolean isLocal = true;
 
     public CafOtpModule(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -38,21 +40,20 @@ public class CafOtpModule implements Module {
             }
             new CafLoginModule(webDriver).action();
         }
-        openNewTab();
-        queryOtp();
-        openLink();
-        inputOtp(getOtp());
+
+        if (isLocal) {
+            inputOtp(CommonUtils.inputValue("OTP"));
+        } else {
+            openNewTab();
+            queryOtp();
+            openLink();
+            inputOtp(getOtp());
+        }
     }
 
     private void waitUntilOtpPageLoaded() {
         FrameAccessor.focusOnFrame(webDriver);
         FrameAccessor.focusOnIframe(webDriver);
-//        System.out.println("wait for mask...");
-//        WebDriverWait waitMin = DriverWaitFactory.waitMin(webDriver, 2);
-//        waitMin.until(ExpectedConditions.presenceOfElementLocated(By.id("framebg")));
-//        System.out.println("mask show");
-//        waitMin.until(ExpectedConditions.invisibilityOfElementLocated(By.id("framebg")));
-//        System.out.println("mask miss");
     }
 
     private void openNewTab() {
