@@ -1,6 +1,7 @@
 package main.java.firstlife;
 
 import main.java.creations.WindowsWebDriverFactory;
+import main.java.utils.ConfigUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,7 +37,7 @@ public class LoginError5Times {
     }
 
     private static void login(String password) throws IOException {
-        webDriver.findElement(By.name("id")).sendKeys("N231874516");
+        webDriver.findElement(By.name("id")).sendKeys(ConfigUtils.getProperties("firstlife.testdata.user1.id"));
 
         webDriver.findElement(By.name("password")).sendKeys(password);
 

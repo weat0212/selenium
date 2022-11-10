@@ -1,6 +1,7 @@
 package main.java.firstlife;
 
 import main.java.creations.WindowsWebDriverFactory;
+import main.java.utils.ConfigUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -31,8 +32,8 @@ public class ForgetPasswordAndReset {
 
         webDriver.get("http://localhost:4200/fleservice/register/p002");
 
-        id = "N231874516";
-        birth = "1977-06-06";
+        id = ConfigUtils.getProperties("firstlife.testdata.user1.id");
+        birth = ConfigUtils.getProperties("firstlife.testdata.user1.birthday");
 
         forgetPassword();
 

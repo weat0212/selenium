@@ -1,5 +1,6 @@
 package main.java.firstlife;
 
+import main.java.utils.ConfigUtils;
 import main.java.utils.IOUtils;
 import main.java.creations.WindowsWebDriverFactory;
 import org.openqa.selenium.By;
@@ -23,7 +24,7 @@ public class AutoRegister {
 
     public static WebDriver webDriver;
 
-    public static String id = "N231874516";
+    public static String id = ConfigUtils.getProperties("firstlife.testdata.user1.id");
 
     public static void main(String[] args) throws IOException {
 
@@ -61,7 +62,7 @@ public class AutoRegister {
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[1]/div/div[1]/label/input"))
                 .sendKeys(id);
 
-        webDriver.findElement(By.name("date_start_1")).sendKeys("1977-06-06");
+        webDriver.findElement(By.name("date_start_1")).sendKeys(ConfigUtils.getProperties("firstlife.testdata.user1.birthday"));
 
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[2]/div/div/label/input"))
                 .sendKeys(inputValue("Kaptcha"));

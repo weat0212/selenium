@@ -1,6 +1,7 @@
 package main.java.firstlife.modules;
 
 import main.java.creations.Module;
+import main.java.utils.ConfigUtils;
 import main.java.utils.IOUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +33,7 @@ public class LoginModule implements Module {
         String account = webDriver.findElement(By.name("id")).getText();
 
         if (account.isEmpty() || account == null) {
-            webDriver.findElement(By.name("id")).sendKeys("N231874516");
+            webDriver.findElement(By.name("id")).sendKeys(ConfigUtils.getProperties("firstlife.testdata.user1.id"));
         }
 
         String password = webDriver.findElement(By.name("password")).getText();

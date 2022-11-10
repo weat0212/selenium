@@ -1,6 +1,7 @@
 package main.java.firstlife;
 
 import main.java.creations.WindowsWebDriverFactory;
+import main.java.utils.ConfigUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -51,7 +52,7 @@ public class OtpFail3Times {
 
     private static void resetPassword() throws IOException {
 
-        webDriver.findElements(By.tagName("input")).get(0).sendKeys("N231874516");
+        webDriver.findElements(By.tagName("input")).get(0).sendKeys(ConfigUtils.getProperties("firstlife.testdata.user1.id"));
 
         webDriver.findElements(By.tagName("input")).get(1).sendKeys(inputValue("OTP"));
 
@@ -93,7 +94,7 @@ public class OtpFail3Times {
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[1]/div/div[1]/label/input"))
                 .sendKeys("N231874516");
 
-        webDriver.findElement(By.name("date_start_1")).sendKeys("1977-06-06");
+        webDriver.findElement(By.name("date_start_1")).sendKeys(ConfigUtils.getProperties("firstlife.testdata.user1.birthday"));
 
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[2]/div/div/label/input"))
                 .sendKeys(inputValue("Kaptcha"));

@@ -1,5 +1,6 @@
 package main.java.firstlife.modules;
 
+import main.java.utils.ConfigUtils;
 import main.java.utils.IOUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -37,9 +38,9 @@ public class RegisterModule {
     public void fillUpRegisterForm() throws IOException {
 
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[1]/div/div[1]/label/input"))
-                .sendKeys("N231874516");
+                .sendKeys(ConfigUtils.getProperties("firstlife.testdata.user1.id"));
 
-        webDriver.findElement(By.name("date_start_1")).sendKeys("1977-06-06");
+        webDriver.findElement(By.name("date_start_1")).sendKeys(ConfigUtils.getProperties("firstlife.testdata.user1.birthday"));
 
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[2]/div/div/label/input"))
                 .sendKeys(IOUtils.inputValue("Kaptcha"));
