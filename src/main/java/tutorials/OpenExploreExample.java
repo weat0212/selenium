@@ -10,8 +10,14 @@ public class OpenExploreExample {
      * @param args
      */
     public static void main(String[] args) {
+
         WebDriver driver = WindowsWebDriverFactory.getInstance().createChromeDriver();
+
+        // 開啟URL
         String url = "https://www.google.com";
         driver.get(url);
+
+        // 最大化視窗
+        driver.manage().window().maximize();
     }
 }
