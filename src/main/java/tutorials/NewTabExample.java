@@ -4,7 +4,7 @@ import main.java.creations.WindowsWebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 
-public class WindowAndTab {
+public class NewTabExample {
 
     public static void main(String[] args) {
 

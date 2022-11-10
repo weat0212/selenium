@@ -1,6 +1,6 @@
 package main.java.firstlife.modules;
 
-import main.java.utils.CommonUtils;
+import main.java.utils.IOUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -42,6 +42,6 @@ public class RegisterModule {
         webDriver.findElement(By.name("date_start_1")).sendKeys("1977-06-06");
 
         webDriver.findElement(By.xpath("/html/body/app-root/app-fes500w/app-p001/div/div[2]/div/form[2]/div[2]/div/div/label/input"))
-                .sendKeys(CommonUtils.inputValue("Kaptcha"));
+                .sendKeys(IOUtils.inputValue("Kaptcha"));
     }
 }

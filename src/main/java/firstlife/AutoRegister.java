@@ -1,6 +1,6 @@
 package main.java.firstlife;
 
-import main.java.utils.CommonUtils;
+import main.java.utils.IOUtils;
 import main.java.creations.WindowsWebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -113,7 +113,7 @@ public class AutoRegister {
 
         webElements.get(0).sendKeys(id);
 
-        webElements.get(1).sendKeys(CommonUtils.inputValue("OTP"));
+        webElements.get(1).sendKeys(IOUtils.inputValue("OTP"));
 
         String newPassword = inputValue("New Password");
 

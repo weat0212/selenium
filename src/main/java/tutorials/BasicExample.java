@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * @author created by andy.wang
  * @Date on 2022/5/20
  */
-public class SeleniumIntro {
+public class BasicExample {
 
     /**
      * 觸發瀏覽器

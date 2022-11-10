@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * 進入iframe & frame
+ */
 public class FrameAccessor {
 
     public static void focusOnFrame(WebDriver webDriver) {

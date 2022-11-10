@@ -1,7 +1,7 @@
 package main.java.firstlife.modules;
 
 import main.java.creations.Module;
-import main.java.utils.CommonUtils;
+import main.java.utils.IOUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -42,7 +42,7 @@ public class LoginModule implements Module {
         }
 
 
-        webDriver.findElement(By.name("kaptcha")).sendKeys(CommonUtils.inputValue("Kaptcha"));
+        webDriver.findElement(By.name("kaptcha")).sendKeys(IOUtils.inputValue("Kaptcha"));
 
         webDriver.findElement(By.className("login")).click();
 
@@ -50,7 +50,7 @@ public class LoginModule implements Module {
         getWait().until(ExpectedConditions.visibilityOfElementLocated(dialog));
         webDriver.findElement(By.className("brown")).click();
 
-        CommonUtils.inputValue("直到下個Dialog出現");
+        IOUtils.inputValue("直到下個Dialog出現");
 
         var repeatLogin = By.tagName("app-dialog");
         getWait().until(ExpectedConditions.visibilityOfElementLocated(repeatLogin));

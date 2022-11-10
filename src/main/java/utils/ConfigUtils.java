@@ -3,6 +3,9 @@ package main.java.utils;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
+/**
+ * 取得Properties資料
+ */
 public class ConfigUtils {
 
     private static PropertiesConfiguration config;

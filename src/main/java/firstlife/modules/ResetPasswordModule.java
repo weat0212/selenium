@@ -1,7 +1,7 @@
 package main.java.firstlife.modules;
 
 import main.java.creations.Module;
-import main.java.utils.CommonUtils;
+import main.java.utils.IOUtils;
 import main.java.creations.WebDriverWaitBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +36,7 @@ public class ResetPasswordModule implements Module {
         inputs.get(1).sendKeys("andy1234");
         inputs.get(2).sendKeys("andy4321");
         inputs.get(3).sendKeys("andy4321");
-        inputs.get(4).sendKeys(CommonUtils.inputValue("驗證碼"));
+        inputs.get(4).sendKeys(IOUtils.inputValue("驗證碼"));
 
         webDriver.findElement(By.className("check_ac")).click();
 

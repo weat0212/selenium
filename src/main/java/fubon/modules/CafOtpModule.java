@@ -2,7 +2,7 @@ package main.java.fubon.modules;
 
 import main.java.creations.DriverWaitFactory;
 import main.java.creations.Module;
-import main.java.utils.CommonUtils;
+import main.java.utils.IOUtils;
 import main.java.utils.ConfigUtils;
 import main.java.utils.FrameAccessor;
 import org.openqa.selenium.By;
@@ -42,7 +42,7 @@ public class CafOtpModule implements Module {
         }
 
         if (isLocal) {
-            inputOtp(CommonUtils.inputValue("OTP"));
+            inputOtp(IOUtils.inputValue("OTP"));
         } else {
             openNewTab();
             queryOtp();
